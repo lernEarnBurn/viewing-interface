@@ -122,22 +122,14 @@ function useCreateComment(postId: string) {
           content: contentRef.current?.value.trim() || "",
         };
 
-        const response = await axios.post(
+        await axios.post(
           `http://localhost:3000/posts/${postId}/comments`,
           data,
           config,
         );
 
-        const newComment = {
-          id: "sdabidusbadiubsudadbisdbusa",
-          author: {
-            _id: "",
-            username: localStorage.getItem("username"),
-            password: "",
-          },
-          post: postId,
-          content: contentRef.current?.value.trim() || "",
-        };
+        
+
 
         // Handle the logic for updating state or UI as needed
 
