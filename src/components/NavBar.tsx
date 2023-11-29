@@ -42,7 +42,7 @@ export function NavBar(props: navBarProps) {
 
   const location = useLocation();
 
-  if (location.pathname.includes("/blogs/")) {
+  if (location.pathname.includes("/viewing-interface/blogs/")) {
     return null;
   }
 

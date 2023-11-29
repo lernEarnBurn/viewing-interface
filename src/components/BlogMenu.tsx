@@ -45,7 +45,7 @@ export function BlogMenu() {
     localStorage.setItem("selectedBlog", JSON.stringify(blog));
 
     setTimeout(() => {
-      navigate(`/blogs/${blog._id}`);
+      navigate(`/viewing-interface/blogs/${blog._id}`);
     }, 350);
   }
 

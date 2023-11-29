@@ -25,19 +25,19 @@ function App() {
           <Route
             path="/viewing-interface/"
             element={
-              loggedIn ? <Navigate to="/blogs" /> : <Navigate to="/log-in" />
+              loggedIn ? <Navigate to="/viewing-interface/blogs" /> : <Navigate to="/viewing-interface/log-in" />
             }
           />
           <Route
-            path="/log-in"
+            path="/viewing-interface/log-in"
             element={<LoginForm setLoggedIn={setLoggedIn} />}
           />
           <Route
-            path="/sign-up"
+            path="/viewing-interface/sign-up"
             element={<SignupForm setLoggedIn={setLoggedIn} />}
           />
-          <Route path="/blogs" element={<BlogMenu />} />
-          <Route path="/blogs/:postId" element={<BlogPage />} />
+          <Route path="/viewing-interface/blogs" element={<BlogMenu />} />
+          <Route path="/viewing-interface/blogs/:postId" element={<BlogPage />} />
         </Routes>
       </AnimatePresence>
     </ThemeProvider>
