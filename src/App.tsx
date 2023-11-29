@@ -23,7 +23,7 @@ function App() {
       <AnimatePresence mode="wait" initial={false}>
         <Routes location={location} key={location.pathname}>
           <Route
-            path="/"
+            path="/viewing-interface"
             element={
               loggedIn ? <Navigate to="/blogs" /> : <Navigate to="/log-in" />
             }
