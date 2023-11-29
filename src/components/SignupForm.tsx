@@ -136,8 +136,8 @@ export function SignupForm(props: signUpFormProps) {
           )}
         </CardContent>
         <CardFooter className="flex justify-between">
-          <Link to="/log-in">Login</Link>
-          <Link to="/blogs">Skip Signup</Link>
+          <Link to="/viewing-interface/log-in">Login</Link>
+          <Link to="/viewing-interface/blogs">Skip Signup</Link>
         </CardFooter>
       </Card>
     </div>
