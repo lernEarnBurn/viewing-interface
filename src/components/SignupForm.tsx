@@ -67,7 +67,7 @@ export function SignupForm(props: signUpFormProps) {
             setShowErrorMessage(false);
             props.setLoggedIn(true);
             setLoading(false);
-            navigate("/");
+            navigate("/viewing-interface/");
           }
         } else {
           setLoading(false);
