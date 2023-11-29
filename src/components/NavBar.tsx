@@ -17,7 +17,7 @@ export function NavBar(props: navBarProps) {
     localStorage.removeItem("selectedBlog");
     localStorage.removeItem("username");
     props.setLoggedIn(false);
-    navigate("/");
+    navigate("/viewing-interface/");
   }
 
   const [scrolledDown, setScrolledDown] = useState(false);
