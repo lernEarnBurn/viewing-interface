@@ -63,7 +63,8 @@ export function SignupForm(props: signUpFormProps) {
 
           if (logIn.data.token) {
             localStorage.setItem("token", logIn.data.token);
-            localStorage.setItem("username", logIn.data.username);
+            localStorage.setItem("username", JSON.stringify(logIn.data.user));
+
             setShowErrorMessage(false);
             props.setLoggedIn(true);
             setLoading(false);
@@ -134,7 +135,7 @@ export function SignupForm(props: signUpFormProps) {
             </Button>
           )}
         </CardContent>
-        <CardFooter>
+        <CardFooter className="flex justify-between">
           <Link to="/log-in">Login</Link>
           <Link to="/blogs">Skip Signup</Link>
         </CardFooter>

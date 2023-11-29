@@ -27,8 +27,10 @@ type Comment = {
 };
 
 export function CommentSection(props: CommentSectionProps) {
-  const { loading, comments } = useFetchPostComments(props.postId);
-  const { contentRef, createComment } = useCreateComment(props.postId);
+  //I know these should be together if i'm gonna couple the code like this
+  const { loading, comments, setComments } = useFetchPostComments(props.postId);
+  const { contentRef, createComment } = useCreateComment(props.postId, setComments);
+
 
   return (
     <>
@@ -95,10 +97,10 @@ function useFetchPostComments(postId: string) {
     fetchPostComments();
   }, [postId]);
 
-  return { loading, comments };
+  return { loading, comments, setComments };
 }
 
-function useCreateComment(postId: string) {
+function useCreateComment(postId: string, setComments: React.Dispatch<React.SetStateAction<Comment[]>>) {
   const contentRef = useRef<HTMLInputElement>(null);
   const navigate = useNavigate();
 
@@ -109,15 +111,32 @@ function useCreateComment(postId: string) {
       contentRef.current?.value
     ) {
       try {
+        const userStorage = localStorage.getItem("username");
+        let user
+        if (typeof userStorage === 'string') {
+           user = JSON.parse(userStorage);
+        } else {
+           user = {
+            _id: '123',
+            username: "John Doe",
+            password: 'n/a'
+          };
+        }
+
         const config = {
           headers: {
             "Content-Type": "application/json",
             Authorization: "Bearer " + localStorage.getItem("token"),
           },
         };
-
-        const data = {
-          author: localStorage.getItem("username"),
+        
+        const data: Comment = {
+          id: '123',
+          author: user || {
+            _id: '123',
+            username: "John Doe",
+            password: 'n/a'
+          },
           post: postId,
           content: contentRef.current?.value.trim() || "",
         };
@@ -127,18 +146,15 @@ function useCreateComment(postId: string) {
           data,
           config,
         );
-
         
-
-
-        // Handle the logic for updating state or UI as needed
+        setComments((prev: Comment[]) => [...prev, data]);
 
         contentRef.current.value = "";
       } catch (err) {
         console.log(err);
       }
     } else {
-      navigate("/");
+      navigate("/viewing-interface/");
     }
   };
 
