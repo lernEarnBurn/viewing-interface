@@ -94,7 +94,7 @@ function useFetchAllBlogs() {
       } else {
         try {
           setLoading(true);
-          const response = await axios.get("http://localhost:3000/posts");
+          const response = await axios.get("http://13.58.53.141:3000/posts");
           setBlogs(response.data);
           setLoading(false);
         } catch (err) {

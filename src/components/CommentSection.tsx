@@ -85,7 +85,7 @@ function useFetchPostComments(postId: string) {
       try {
         setLoading(true);
         const response = await axios.get(
-          `http://localhost:3000/posts/${postId}/comments`,
+          `http://13.58.53.141:3000/posts/${postId}/comments`,
         );
         setComments(response.data);
         setLoading(false);
@@ -142,7 +142,7 @@ function useCreateComment(postId: string, setComments: React.Dispatch<React.SetS
         };
 
         await axios.post(
-          `http://localhost:3000/posts/${postId}/comments`,
+          `http://13.58.53.141:3000/posts/${postId}/comments`,
           data,
           config,
         );
