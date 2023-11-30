@@ -15,6 +15,8 @@ export function NavBar(props: navBarProps) {
     localStorage.removeItem("token");
     localStorage.removeItem("allBlogs");
     localStorage.removeItem("selectedBlog");
+    localStorage.removeItem("myBlogs");
+    localStorage.removeItem("selectedMyBlog");
     localStorage.removeItem("username");
     props.setLoggedIn(false);
     navigate("/viewing-interface/");
