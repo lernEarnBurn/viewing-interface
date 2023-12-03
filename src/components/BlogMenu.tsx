@@ -94,7 +94,7 @@ function useFetchAllBlogs() {
       } else {
         try {
           setLoading(true);
-          const response = await axios.get("http://13.58.53.141:3000/posts");
+          const response = await axios.get("https://fierce-dawn-84888-34f3e45a7f77.herokuapp.com/posts");
           setBlogs(response.data);
           setLoading(false);
         } catch (err) {

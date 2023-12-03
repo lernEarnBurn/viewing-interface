@@ -85,7 +85,7 @@ function useFetchPostComments(postId: string) {
       try {
         setLoading(true);
         const response = await axios.get(
-          `http://13.58.53.141:3000/posts/${postId}/comments`,
+          `https://fierce-dawn-84888-34f3e45a7f77.herokuapp.com/posts/${postId}/comments`,
         );
         setComments(response.data);
         setLoading(false);
@@ -142,7 +142,7 @@ function useCreateComment(postId: string, setComments: React.Dispatch<React.SetS
         };
 
         await axios.post(
-          `http://13.58.53.141:3000/posts/${postId}/comments`,
+          `https://fierce-dawn-84888-34f3e45a7f77.herokuapp.com/posts/${postId}/comments`,
           data,
           config,
         );
